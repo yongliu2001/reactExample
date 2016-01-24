@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://fb.me/react-0.14.6.min.js"></script>
+	<script src="https://fb.me/react-dom-0.14.6.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  <title>Life Cycle example</title>
+</head>
+
+<body>
+	<script type="text/babel">
+	  var Box = React.createClass({
+
+      getDefaultProps:function() {
+        return {
+          colorIndex: -1
+        }
+      },
+
+      getInitialState: function() {
+        return {
+          backgroundColor: "blue",
+          height: 200,
+          width:200
+        }
+      },
+
+      update: function() {
+        this.setProps({colorIndex: this.props.colorIndex + 1});
+      },
+
+      componentWillReceiveProps: function(nextProps) {
+        var color = this.props.colors.split(',')[nextProps.colorIndex];
+        if (!color) {
+          this.setProps({colorIndex:0});
+        }
+        this.setState({backgroundColor: color});
+      },
+
+      componentWillMount: function() {
+        alert("component is about to mount.");
+      },
+      componentDidMount:function() {
+        alert("component did mount.");
+      },
+      render: function() {
+        return <div style={this.state} onClick={this.update}></div>;
+      }
+    });
+
+    React.render(<Box colors="Red,DarkMagenta,Salmon, Chartreuse"/>, document.body);
+
+    // var getRidOfBox = document.getElementsByTagName('div')[0];
+    // getRidOfBox.onclick = function() {
+    //   React.unmountComponentAtNode(document.body);
+    //   alert("component is unmount");
+    // }
+	</script>
+</body>
+</html>
