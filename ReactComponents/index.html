@@ -1,37 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script src="https://fb.me/react-0.14.6.min.js"></script>
-	<script src="https://fb.me/react-dom-0.14.6.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
-	<title>React Components</title>
+  <title>React Bulletin Board</title>
+  <!-- jQuery, jQueryUI -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js" charset="utf-8" type="text/javascript"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.css" media="screen" title="no title" charset="utf-8"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" charset="utf-8" type="text/javascript"></script>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" charset="utf-8" type="text/javascript"></script>
+
+  <!-- React -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js" charset="utf-8"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js" charset="utf-8" type="text/javascript"></script> -->
+
+  <!-- custom stylesheet -->
+  <link rel="stylesheet" href="css/style.css" media="screen" title="no title" charset="utf-8" type="text/css"/>
 </head>
-
 <body>
-	<div id="react-container"></div>
-	<script type="text/babel">
-		var MyComponent = React.createClass({
-			render: function() {
-				return <div>
-					<h1>{this.props.text}</h1>
-					<p>{this.props.children}</p>
-				</div>;
-			}
-		});
+  <div id="react-container"></div>
+  <script src="build/Note.js" charset="utf-8"></script>
+  <script src="build/Board.js" charset="utf-8"></script>
+  <script src="build/main.js" charset="utf-8"></script>
 
-		React.render(
-				<div>
-					<MyComponent text="Hello World">
-						This is a hello.
-					</MyComponent>
-					<MyComponent text="How are you?">
-						This is a how are you.
-					</MyComponent>
-					<MyComponent text="Goodbye">
-						This is a goodbye.
-					</MyComponent>
-				</div>, document.getElementById('react-container'));
-
-	</script>
 </body>
 </html>
